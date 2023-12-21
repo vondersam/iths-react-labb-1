@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-const Menu = () => {
-  const [searchText, setSearchText] = useState('');
+const Menu = ({ setSearchText }) => {
+  const [valueText, setValueText] = useState('');
+
   return (
     <div className="row">
       <div className="col-4">
@@ -13,13 +14,14 @@ const Menu = () => {
           <input
             className="form-control border-secondary py-2"
             type="search"
-            value={searchText}
-            onChange={(event) => {
-              setSearchText(event.target.value);
-            }}
+            onChange={(e) => setValueText(e.target.value)}
+            value={valueText}
             placeholder="Search for books that you want to add to your list"
           />
-          <button className="btn btn-outline-success" type="button">
+          <button
+            onClick={() => setSearchText(valueText)}
+            className="btn btn-outline-success"
+          >
             Search
           </button>
         </div>

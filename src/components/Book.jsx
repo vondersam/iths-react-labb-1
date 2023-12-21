@@ -1,8 +1,8 @@
-function Book({ author, title }) {
+function Book({ title, author }) {
   return (
     <li>
       <div className="item">
-        {title} - {title}
+        {title} - {author}
       </div>
     </li>
   );
