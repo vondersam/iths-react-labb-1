@@ -4,7 +4,10 @@ import Review from './Review';
 function Book({ title, author_name, id, cover_edition_key }) {
   const [read, setRead] = useState(false);
   return (
-    <div className="card mb-3" style={{ maxWidth: '340px' }}>
+    <div
+      className={`card ${read ? 'border-success' : 'border-warning'} mb-3 `}
+      style={{ maxWidth: '340px' }}
+    >
       <div className="row g-0">
         <div className="col-md-4">
           <img

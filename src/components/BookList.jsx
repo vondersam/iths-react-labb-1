@@ -2,7 +2,7 @@ import Book from './Book';
 
 const BookList = ({ bookList }) => {
   return (
-    <ul>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
       {bookList.map((book) => {
         return (
           <Book
@@ -13,7 +13,7 @@ const BookList = ({ bookList }) => {
           />
         );
       })}
-    </ul>
+    </div>
   );
 };
 export default BookList;

@@ -20,7 +20,7 @@ const Review = ({ read, setRead }) => {
       />
       <br />
       <button type="submit" className="btn btn-outline-success">
-        Mark as {read ? 'unread' : 'read'}
+        Mark as {read ? 'to read' : 'read'}
       </button>
     </form>
   );
