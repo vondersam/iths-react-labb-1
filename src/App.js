@@ -25,8 +25,6 @@ function App() {
   return (
     <div className="container mt-3">
       <Menu setSearchText={setSearchText} books={books} loading={loading} />
-      {/* {!loading && <BookList books={books} />}
-      {loading && <div>Loading please wait...</div>} */}
     </div>
   );
 }

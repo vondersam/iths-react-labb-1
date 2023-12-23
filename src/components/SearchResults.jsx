@@ -17,6 +17,8 @@ function SearchResults({ books, loading }) {
       <option value="">
         {loading
           ? 'Loading please wait...'
+          : selectedBook !== ''
+          ? `${selectedBook.title} - ${selectedBook.author_name}`
           : 'Select a book to add to your list'}
       </option>
       {books.map((book) => (
