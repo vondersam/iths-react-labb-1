@@ -1,8 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SearchResults from './SearchResults';
+import formatSearchText from '../helpers/formatSearchText';
 
-const Menu = ({ setSearchText, books, loading }) => {
+const Menu = () => {
   const [valueText, setValueText] = useState('');
+  const [searchText, setSearchText] = useState('');
+  const [searchBooks, setSearchBooks] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    async function loadBooks() {
+      setLoading(true);
+      const formattedSearchText = formatSearchText(searchText);
+      const results = await fetch(
+        `https://openlibrary.org/search.json?q=${formattedSearchText}`
+      );
+      const data = await results.json();
+      setSearchBooks(data.docs);
+      setLoading(false);
+    }
+    loadBooks();
+  }, [searchText]);
 
   return (
     <div className="row">
@@ -25,7 +43,7 @@ const Menu = ({ setSearchText, books, loading }) => {
           >
             Search
           </button>
-          {<SearchResults books={books} loading={loading} />}
+          {<SearchResults searchBooks={searchBooks} loading={loading} />}
         </div>
       </div>
     </div>

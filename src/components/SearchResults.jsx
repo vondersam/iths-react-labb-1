@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-function SearchResults({ books, loading }) {
+function SearchResults({ searchBooks, loading }) {
   const [selectedBook, setSelectedBook] = useState('');
   const findBook = (bookID) => {
-    return books.find((bookElement) => bookElement.key === bookID);
+    return searchBooks.find((bookElement) => bookElement.key === bookID);
   };
 
   return (
@@ -21,7 +21,7 @@ function SearchResults({ books, loading }) {
           ? `${selectedBook.title} - ${selectedBook.author_name}`
           : 'Select a book to add to your list'}
       </option>
-      {books.map((book) => (
+      {searchBooks.map((book) => (
         <option key={book.key} value={book.key}>
           {book.title} - {book.author_name}
         </option>
