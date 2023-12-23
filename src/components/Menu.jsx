@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import SearchResults from './SearchResults';
 import formatSearchText from '../helpers/formatSearchText';
 
-const Menu = () => {
+const Menu = ({ bookList, setBookList }) => {
   const [valueText, setValueText] = useState('');
   const [searchText, setSearchText] = useState('');
   const [searchBooks, setSearchBooks] = useState([]);
@@ -21,6 +21,13 @@ const Menu = () => {
     }
     loadBooks();
   }, [searchText]);
+
+  const props = {
+    searchBooks,
+    loading,
+    bookList,
+    setBookList
+  }
 
   return (
     <div className="row">
@@ -43,7 +50,7 @@ const Menu = () => {
           >
             Search
           </button>
-          {<SearchResults searchBooks={searchBooks} loading={loading} />}
+          {<SearchResults {...props} />}
         </div>
       </div>
     </div>
