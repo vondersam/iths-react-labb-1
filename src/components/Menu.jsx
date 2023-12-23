@@ -25,8 +25,7 @@ const Menu = ({ setSearchText, books, loading }) => {
           >
             Search
           </button>
-          {!loading && <SearchResults books={books} />}
-          {loading && <div>Loading please wait...</div>}
+          {<SearchResults books={books} loading={loading} />}
         </div>
       </div>
     </div>
