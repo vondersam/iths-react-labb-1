@@ -1,4 +1,3 @@
-import { Button } from 'bootstrap';
 import { useState } from 'react';
 
 function SearchResults({ searchBooks, loading, bookList, setBookList }) {

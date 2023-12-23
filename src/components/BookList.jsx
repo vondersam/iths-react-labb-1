@@ -4,7 +4,14 @@ const BookList = ({ bookList }) => {
   return (
     <ul>
       {bookList.map((book) => {
-        return <Book key={book.key} {...book} />;
+        return (
+          <Book
+            key={book.key}
+            title={book.title}
+            author_name={book.author_name}
+            cover_edition_key={book.cover_edition_key}
+          />
+        );
       })}
     </ul>
   );
