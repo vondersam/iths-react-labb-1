@@ -13,7 +13,6 @@ const Review = ({ read, setRead }) => {
     <form onSubmit={handleSubmit}>
       <textarea
         className="form-control"
-        name="content"
         value={reviewText}
         onChange={handleReviewChange}
         placeholder="Add your review here"

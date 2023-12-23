@@ -5,7 +5,7 @@ function Book({ title, author_name, id, cover_edition_key }) {
   const [read, setRead] = useState(false);
   return (
     <div
-      className={`card ${read ? 'border-success' : 'border-warning'} mb-3 `}
+      className={`card ${read ? 'border-success' : 'border-warning'} mb-3 mr-4`}
       style={{ maxWidth: '340px' }}
     >
       <div className="row g-0">

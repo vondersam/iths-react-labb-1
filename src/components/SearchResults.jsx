@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
-function SearchResults({ searchBooks, loading, bookList, setBookList }) {
-  const [selectedBook, setSelectedBook] = useState('');
+function SearchResults({ searchBooks, loading, bookList, setBookList, selectedBook, setSelectedBook }) {
   const findBook = (bookID) => {
     return searchBooks.find((bookElement) => bookElement.key === bookID);
   };

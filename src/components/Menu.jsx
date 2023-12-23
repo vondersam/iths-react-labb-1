@@ -7,6 +7,7 @@ const Menu = ({ bookList, setBookList }) => {
   const [searchText, setSearchText] = useState('');
   const [searchBooks, setSearchBooks] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [selectedBook, setSelectedBook] = useState('');
 
   useEffect(() => {
     async function loadBooks() {
@@ -22,11 +23,18 @@ const Menu = ({ bookList, setBookList }) => {
     loadBooks();
   }, [searchText]);
 
+  const handleChange = (event) => {
+    setSelectedBook('');
+    setValueText(event.target.value);
+  };
+
   const props = {
     searchBooks,
     loading,
     bookList,
-    setBookList
+    setBookList,
+    selectedBook,
+    setSelectedBook
   };
 
   return (
@@ -40,7 +48,7 @@ const Menu = ({ bookList, setBookList }) => {
           <input
             className="form-control border-secondary py-2"
             type="search"
-            onChange={(e) => setValueText(e.target.value)}
+            onChange={handleChange}
             value={valueText}
             placeholder="Search for books that you want to add to your list"
           />
