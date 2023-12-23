@@ -28,7 +28,7 @@ function SearchResults({ searchBooks, loading, bookList, setBookList }) {
       <select
         className="form-select"
         onChange={(e) => handleChange(e)}
-        // value={selectedBook}
+        value={selectedBook}
       >
         <option value={selectedBook}>
           {loading

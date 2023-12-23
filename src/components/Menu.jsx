@@ -27,7 +27,7 @@ const Menu = ({ bookList, setBookList }) => {
     loading,
     bookList,
     setBookList
-  }
+  };
 
   return (
     <div className="row">
