@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import BookList from './components/BookList';
+import BookList from './components/SearchResults';
 import Menu from './components/Menu';
 import formatSearchText from './helpers/formatSearchText';
 
@@ -11,7 +11,6 @@ function App() {
   useEffect(() => {
     async function loadBooks() {
       setLoading(true);
-      console.log(searchText);
       const formattedSearchText = formatSearchText(searchText);
       const results = await fetch(
         `https://openlibrary.org/search.json?q=${formattedSearchText}`
@@ -25,9 +24,9 @@ function App() {
 
   return (
     <div className="container mt-3">
-      <Menu setSearchText={setSearchText} />
-      {!loading && <BookList books={books} />}
-      {loading && <div>Loading please wait...</div>}
+      <Menu setSearchText={setSearchText} books={books} loading={loading} />
+      {/* {!loading && <BookList books={books} />}
+      {loading && <div>Loading please wait...</div>} */}
     </div>
   );
 }

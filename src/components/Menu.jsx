@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import SearchResults from './SearchResults';
 
-const Menu = ({ setSearchText }) => {
+const Menu = ({ setSearchText, books, loading }) => {
   const [valueText, setValueText] = useState('');
 
   return (
@@ -24,6 +25,8 @@ const Menu = ({ setSearchText }) => {
           >
             Search
           </button>
+          {!loading && <SearchResults books={books} />}
+          {loading && <div>Loading please wait...</div>}
         </div>
       </div>
     </div>
