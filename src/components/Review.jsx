@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 
 const Review = ({ read, setRead }) => {
-  const [reviewText, setReviewText] = useState('');
+  const textRef = useRef('');
   const handleReviewChange = (event) => {
-    setReviewText(event.target.value);
+    textRef.current.value = event.target.value;
+    textRef.current.placeholder = 'Add your review here';
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     setRead(!read);
@@ -13,9 +15,8 @@ const Review = ({ read, setRead }) => {
     <form onSubmit={handleSubmit}>
       <textarea
         className="form-control"
-        value={reviewText}
+        ref={textRef}
         onChange={handleReviewChange}
-        placeholder="Add your review here"
       />
       <br />
       <button type="submit" className="btn btn-outline-success">
