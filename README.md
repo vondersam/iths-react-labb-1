@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Book Keep
+
+Book Keep is an app to keep track of the books that you wish to read and those that you have read. It was created as lab 1 in the React course at IT-Högskolan, Sweden. You can search for books to add, which makes a call to the [Open Library Search API](https://openlibrary.org/dev/docs/api/search), then select the specific book from the results list, and add it to your list. Your list is made of cards with the book cover, title, author, a review field for you to review the book, and a boolean option to mark the book as "read" or "to read".
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
